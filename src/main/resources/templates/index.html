@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div class="container">
+    <div th:if="${user==null}">
+        <br>
+        방문을 환영해요!    <br>
+        <br>
+        <a th:href="@{/login}" class="btn">로그인하기</a>
+        <a th:href="@{https://kauth.kakao.com/oauth/authorize?client_id=54747942f208486425c7e37cb211a42f&redirect_uri=http://localhost:8080/kakao/sign_in&response_type=code}" class="p-2">카카오 로그인하기</a>
+        <a th:href="@{/signup}" class="btn">회원가입하기</a>
+    </div>
+    <div th:unless="${user == null}">
+        <br>
+        환영합니다 <span th:text="${user.username}"></span>님!    <br>
+        <br>
+        <a th:href="@{/updateProfile}" class="btn">회원정보 변경</a>
+        <a th:href="@{/withdrawProfile}" class="btn">회원 탈퇴하기</a>
+    </div>
+</div>
+</body>
+</html>

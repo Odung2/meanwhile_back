@@ -1,0 +1,18 @@
+GET http://localhost:8080/trending
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-07-25T153018.404.json
+
+###
+
+GET http://localhost:8080/trending
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.7)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-07-25T152953.404.json
+
+###
+
