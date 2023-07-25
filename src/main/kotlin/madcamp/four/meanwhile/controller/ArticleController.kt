@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cache.CacheManager
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import reactor.kotlin.core.publisher.toMono
 
+@CrossOrigin(allowedHeaders = ["*"])
 @Controller
 class ArticleController {
 
