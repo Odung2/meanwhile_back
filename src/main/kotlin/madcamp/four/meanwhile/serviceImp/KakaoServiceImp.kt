@@ -75,7 +75,6 @@ class KakaoServiceImp:KakaoService {
         var refreshToken = ""
 
         val reqUrl = "https://kauth.kakao.com/oauth/token"
-//        val reqUrl = "https://kauth.kakao.com/oauth/authorize"
 
         try {
             val url = URL(reqUrl)
@@ -86,7 +85,7 @@ class KakaoServiceImp:KakaoService {
             val sb = StringBuilder()
             sb.append("grant_type=authorization_code")
             sb.append("&client_id=54747942f208486425c7e37cb211a42f")
-            sb.append("&redirect_uri=http://localhost:8080/kakao/sign_in")
+            sb.append("&redirect_uri=http://172.10.5.81:80/kakao/sign_in")
             sb.append("&code=$authorize_code")
             bw.write(sb.toString())
             bw.flush()
