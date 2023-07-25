@@ -46,16 +46,19 @@ class KakaoServiceImp:KakaoService {
                 val newUser = User(
                     userId = 1,
                     signupId = signupIdstr,
-                    email = accessToken.substring(3),
+                    email = accessToken.substring(10),
                     username= username,
-                    password = accessToken,
+                    password = accessToken.substring(15),
                 )
 
                 userService.insertUser(newUser)
+                print("signup done")
             }
             val roles: MutableList<GrantedAuthority> = ArrayList()
             roles.add(SimpleGrantedAuthority("USER"))
             token = UsernamePasswordAuthenticationToken(signupId, null, roles)
+
+            print("login done")
             return jwtTokenUtil.generateToken(token)
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
@@ -101,6 +104,8 @@ class KakaoServiceImp:KakaoService {
             refreshToken = element.getAsJsonObject().get("refresh_token").getAsString()
             br.close()
             bw.close()
+
+            print("$accessToken was printed!!")
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -139,6 +144,7 @@ class KakaoServiceImp:KakaoService {
             e.printStackTrace()
         }
 
+        print("$userInfo was extracted")
         return userInfo
     }
 
