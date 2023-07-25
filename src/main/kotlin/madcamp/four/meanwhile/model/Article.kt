@@ -11,5 +11,6 @@ class Article(
         val summary: String,
         val keywords: List<String>,
         val references: List<String>,
+        val publishTime: String,
         val imageLink: String
 )

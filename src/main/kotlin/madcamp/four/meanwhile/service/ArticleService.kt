@@ -9,4 +9,5 @@ interface ArticleService {
 
     public fun getTrendNews():List<Article>
 
+    public fun dummyArticles():List<Article>
 }

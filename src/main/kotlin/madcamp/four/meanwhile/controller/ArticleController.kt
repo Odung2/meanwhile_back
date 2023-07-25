@@ -26,6 +26,7 @@ class ArticleController {
 
     private val objectMapper: ObjectMapper = ObjectMapper()
 
+
     @GetMapping("/search")
     fun searchArticles(@RequestParam(value = "query", required = true) query: String): ResponseEntity<String> {
         val queryKeywords: List<String> = articleService.getQueryKeywords(query)
@@ -60,5 +61,11 @@ class ArticleController {
 
             ResponseEntity.ok(json)
         }
+    }
+
+    @GetMapping("/articles")
+    fun dummyArticles(keywords: String): ResponseEntity<String>{
+        val json:String = objectMapper.writeValueAsString(articleService.dummyArticles())
+        return  ResponseEntity.ok(json)
     }
 }
