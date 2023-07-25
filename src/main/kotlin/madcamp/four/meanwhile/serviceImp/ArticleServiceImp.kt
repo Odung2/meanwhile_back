@@ -2,10 +2,17 @@ package madcamp.four.meanwhile.serviceImp
 
 import madcamp.four.meanwhile.model.Article
 import madcamp.four.meanwhile.service.ArticleService
+import org.springframework.core.ParameterizedTypeReference
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpMethod
 import org.springframework.stereotype.Service
+import org.springframework.web.client.RestTemplate
 
 @Service
 class ArticleServiceImp:ArticleService{
+    private val djangoServerUrl = "http://localhost:10000/api/articles" //jiyeon setting
+    private val restTemplate = RestTemplate()
+
     private val dummyArticles: List<Article> = listOf(
             Article(
                     1,
@@ -32,14 +39,23 @@ class ArticleServiceImp:ArticleService{
     )
 
     override fun getQueryKeywords(keyword: String): List<String> {
-        return listOf("keyword1", "keyword2", "keyword3")
+        // Spring Boot에서 받은 문자열을 Django 서버로 전송
+        val response = restTemplate.exchange(djangoServerUrl, HttpMethod.POST, HttpEntity(keyword), object : ParameterizedTypeReference<List<String>>() {})
+        return response.body!!
+//        return listOf("keyword1", "keyword2", "keyword3")
     }
 
     override fun SearchArticles(keywords: List<String>): List<Article> {
-        return dummyArticles
+        val requestEntity: HttpEntity<List<String>> = HttpEntity(keywords)
+        val response = restTemplate.exchange(djangoServerUrl, HttpMethod.POST, requestEntity, object : ParameterizedTypeReference<List<Article>>() {})
+        return response.body ?: emptyList()
+//        return dummyArticles
     }
 
-    override fun getTrendNews(): List<Article> {
-        return dummyArticles
+    override fun getTrendNews(): List<Article> { //그냥 가져오기.
+//        val restTemplate = RestTemplate()
+        val response = restTemplate.getForObject(djangoServerUrl, Array<Article>::class.java)
+        return response?.toList() ?: emptyList()
+//        return dummyArticles
     }
 }

@@ -8,4 +8,5 @@ interface ArticleService {
     public fun SearchArticles(keywords:List<String>):List<Article>
 
     public fun getTrendNews():List<Article>
+
 }
