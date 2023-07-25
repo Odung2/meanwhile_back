@@ -22,7 +22,7 @@ class MainController {
     {
         val token: String = kakaoService.execKakaoLogin(code)
 
-        return "redirect:http://172.10.5.81:80/kakao?data=$token"
+        return "redirect:http://172.10.5.81:443/kakao?data=$token"
     }
 
     @GetMapping("/kakao")
