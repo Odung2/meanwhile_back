@@ -18,18 +18,17 @@ class MainController {
     lateinit var kakaoService: KakaoService
 
     @GetMapping("/kakao/sign_in")
-//@GetMapping("/inhere")
     public fun kakaoSignIn(@RequestParam("code") code:String) :String
     {
         val token: String = kakaoService.execKakaoLogin(code)
 
-        return "redirect:http://localhost:8080/kakao?data=$token"
+        return "redirect:http://172.10.5.81:80/kakao?data=$token"
     }
 
     @GetMapping("/kakao")
-    public fun kakaoLoginDone(@RequestParam(value = "data", required = true) token:String):ResponseEntity<String>
+    public fun kakaoLoginDone(@RequestParam(value = "data", required = true) token:String):String
     {
-        return ResponseEntity.ok(token)
+        return "index"
     }
 
 }
