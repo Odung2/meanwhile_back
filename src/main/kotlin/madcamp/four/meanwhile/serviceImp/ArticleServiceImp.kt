@@ -19,6 +19,7 @@ class ArticleServiceImp:ArticleService{
                 summary = "This is the first article.",
                 keywords = listOf("keyword1", "keyword2", "keyword3"),
                 references = listOf("ref1", "ref2", "ref3"),
+                ref_titles = listOf("ref1article1", "ref2article1", "ref3article1"),
                 publishTime = "2023-07-26 00:04",
                 imageLink = "https://image.mediapen.com/news/202103/news_605667_1614652226_m.jpg"
             ),
@@ -27,6 +28,7 @@ class ArticleServiceImp:ArticleService{
                 summary = "This is the second article.",
                 keywords = listOf("keyword4", "keyword5", "keyword6"),
                 references = listOf("ref4", "ref5", "ref6"),
+                ref_titles = listOf("ref1article2", "ref2article2", "ref3article2"),
                 publishTime = "2023-07-27 00:04",
                 imageLink = "https://pbs.twimg.com/media/FACQ9-hUcAcA_11?format=jpg&name=large"
             ),
@@ -35,6 +37,7 @@ class ArticleServiceImp:ArticleService{
                 summary = "This is the third article.",
                 keywords = listOf("keyword7", "keyword8", "keyword9"),
                 references = listOf("ref7", "ref8", "ref9"),
+                ref_titles = listOf("ref1article3", "ref2article3", "ref3article3"),
                 publishTime = "2023-07-28 00:04",
                 imageLink = "https://blog.kakaocdn.net/dn/w4C2v/btrVqJWa4Pt/Ba0Dw0MU5gAlfQ7aKHZksk/img.jpg"
             )
