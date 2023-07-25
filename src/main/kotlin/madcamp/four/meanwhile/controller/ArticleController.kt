@@ -66,7 +66,7 @@ class ArticleController {
     }
 
     @GetMapping("/articles")
-    fun dummyArticles(keywords: String): ResponseEntity<String>{
+    fun dummyArticles(@RequestParam(value = "keywords", required = true) keywords: String): ResponseEntity<String>{
         val json:String = objectMapper.writeValueAsString(articleService.dummyArticles())
         return  ResponseEntity.ok(json)
     }
