@@ -6,7 +6,7 @@ interface BookmarkService {
 
     public fun addBookmark(bookmark: Bookmark)
 
-    public fun getBookmarkList(userId:Long):List<Bookmark>
+    public fun getBookmarkList(signupId:String):List<Bookmark>
 
     public fun deleteBookmark(userId: Long, refLink:String)
 }

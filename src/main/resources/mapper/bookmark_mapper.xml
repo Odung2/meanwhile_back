@@ -17,7 +17,7 @@
     <select id="getBookmarkList" resultMap="BookmarkResultMap">
         SELECT *
         FROM bookmark
-        WHERE user_id = #{userId}
+        WHERE signup_id = #{signupId}
     </select>
 
     <delete id="deleteBookmark" parameterType="madcamp.four.meanwhile.model.Bookmark">

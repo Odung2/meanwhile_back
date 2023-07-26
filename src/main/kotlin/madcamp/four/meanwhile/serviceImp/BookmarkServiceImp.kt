@@ -41,8 +41,8 @@ class BookmarkServiceImp: BookmarkService {
 
     //2. like list userid로 불러오기
 
-    override fun getBookmarkList(userId: Long): List<Bookmark> {
-        return bookmarkMapper.getBookmarkList(userId)
+    override fun getBookmarkList(signupId: String): List<Bookmark> {
+        return bookmarkMapper.getBookmarkList(signupId)
     }
 
     override fun deleteBookmark(userId: Long, refLink: String) {
