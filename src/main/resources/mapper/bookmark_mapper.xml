@@ -11,9 +11,9 @@
 
     <insert id="addBookmark">
         INSERT INTO bookmark
-            (user_id, ref_link, ref_title)
+            (user_id, ref_title, ref_link)
         VALUES
-            (#{userId}, #{refLink}, #{refTitle})
+            (#{userId}, #{refTitle}, #{refLink})
     </insert>
 
     <select id="getBookmarkList" resultMap="BookmarkResultMap">

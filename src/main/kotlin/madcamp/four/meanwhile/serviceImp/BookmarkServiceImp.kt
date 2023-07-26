@@ -17,12 +17,16 @@ class BookmarkServiceImp: BookmarkService {
     //1. like button 눌렀을 때 -> userid 별로 추가
 
     override fun addBookmark(userId: Long, refLink: String, refTitle:String) {
+//        print("in Service IMPP\n")
         print(userId)
         print(refTitle)
         print(refLink)
-        bookmarkMapper.addBookmark(userId, refLink, refTitle)
-//        bookmarkMapper.addBookmark()
+        bookmarkMapper.addBookmark(1234, "refTitle", "refLink")
+        print("in Service IMPP1\n")
 
+        bookmarkMapper.addBookmark(userId, refTitle, refLink)
+//        bookmarkMapper.addBookmark()
+        print("in Service IMPP2\n")
 
     }
 
