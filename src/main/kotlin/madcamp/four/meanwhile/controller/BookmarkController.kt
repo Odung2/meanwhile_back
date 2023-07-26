@@ -32,12 +32,13 @@ class BookmarkController {
 //            @RequestParam(value="refLink", required=true) refLink:String
     ): ResponseEntity<String>
     {
-//        print("ADD BOOKMARK\n")
+        print("ADD BOOKMARK\n")
 //        print(likeData)
 //        print()
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
             var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
+            print(userId)
 //            var userId:Long = 1
             var refLink:String = likeData.refLink
             var refTitle:String = likeData.refTitle

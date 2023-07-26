@@ -32,6 +32,7 @@ class BookmarkServiceImp: BookmarkService {
         print(bookmark.refLink)
         print(bookmark.userId)
         print(bookmark.bookmarkId)
+
         bookmarkMapper.addBookmark(bookmark)
 //        bookmarkMapper.addBookmark()
         print("in Service IMPP2\n")
