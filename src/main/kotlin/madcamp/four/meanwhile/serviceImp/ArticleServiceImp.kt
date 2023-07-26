@@ -64,6 +64,7 @@ class ArticleServiceImp:ArticleService{
     override fun getTrendNews(): List<Article> { //그냥 가져오기.
         val trendUrl:String = "$djangoServerUrl/api/trend"
 
+        print("get request before send it")
         val (_, response, result) = trendUrl.httpGet().responseString()
         print("get response from deep learning server")
 
