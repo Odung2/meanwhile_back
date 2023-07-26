@@ -2,6 +2,7 @@ package madcamp.four.meanwhile.mapper
 
 import madcamp.four.meanwhile.model.Bookmark
 import org.apache.ibatis.annotations.Mapper
+import org.mybatis.spring.annotation.MapperScan
 
 @Mapper
 interface BookmarkMapper {

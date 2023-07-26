@@ -10,4 +10,6 @@ interface UserService {
 
     public fun insertUser(user:User)
 
+    public fun getUserIdBySignupId(signupId: String):Long
+
 }
