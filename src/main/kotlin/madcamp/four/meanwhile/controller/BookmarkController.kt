@@ -38,8 +38,9 @@ class BookmarkController {
             var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
             var refLink = likeData.references
             var refTitle = likeData.refTitle
-//            print(refTitle)
-//            print(userId)
+            print(refTitle)
+            print(userId)
+            print("in BookmarkController")
             bookmarkService.addBookmark(userId, refLink, refTitle)
 
             return ResponseEntity.ok("Successfully add the bookmark")

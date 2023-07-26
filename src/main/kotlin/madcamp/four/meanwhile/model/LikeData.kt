@@ -6,7 +6,7 @@ import lombok.Data
 @Data
 @AllArgsConstructor
 data class LikeData(
-        val jwtUtilToken: String,
+//        val jwtUtilToken: String,
         val refTitle: String,
         val references: String
 )
