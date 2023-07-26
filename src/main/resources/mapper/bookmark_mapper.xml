@@ -10,7 +10,7 @@
     </resultMap>
 
     <insert id="addBookmark">
-        INSERT INTO user
+        INSERT INTO bookmark
             (user_id, ref_link, ref_title)
         VALUES
             (#{userId}, #{refLink}, #{refTitle})
