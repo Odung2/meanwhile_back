@@ -4,7 +4,7 @@ import madcamp.four.meanwhile.model.Bookmark
 
 interface BookmarkService {
 
-    public fun addBookmark(userId:Long, refLink:String)
+    public fun addBookmark(userId: Long, refLink: String, refTitle:String)
 
     public fun getBookmarkList(userId:Long):List<Bookmark>
 

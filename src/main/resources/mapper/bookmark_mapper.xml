@@ -6,13 +6,14 @@
         <id property="bookmarkId" column="bookmark_id" />
         <result property="userId" column="user_id"/>
         <result property="refLink" column="ref_link"/>
+        <result property="refTitle" column="ref_title"/>
     </resultMap>
 
-    <insert id="insertUser">
-        INSERT INTO user
-            (user_id, ref_link)
+    <insert id="addBookmark">
+        INSERT INTO bookmark
+            (user_id, ref_link, ref_title)
         VALUES
-            (#{userId}, #{refLink})
+            (#{userId}, #{refLink}, #{refTitle})
     </insert>
 
     <select id="getBookmarkList" resultMap="BookmarkResultMap">

@@ -3,9 +3,10 @@ package madcamp.four.meanwhile.model
 import lombok.AllArgsConstructor
 import lombok.Data
 import javax.persistence.Column
+import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-
+@Entity
 @Data
 @AllArgsConstructor
 class Bookmark (
@@ -19,5 +20,8 @@ class Bookmark (
 
     @Column
     public var refLink: String,
+
+    @Column
+    public var refTitle: String,
 
 )
