@@ -61,7 +61,7 @@ class BookmarkController {
         }
     }
 
-    @GetMapping("/get_bookmark_list")
+    @GetMapping("/bookmarks")
     public fun getBookmarkList(
             @RequestHeader("Authorization") token:String,
     ): ResponseEntity<String>
