@@ -5,6 +5,7 @@ import madcamp.four.meanwhile.model.Bookmark
 import madcamp.four.meanwhile.model.LikeData
 import madcamp.four.meanwhile.security.JwtTokenUtil
 import madcamp.four.meanwhile.service.BookmarkService
+import madcamp.four.meanwhile.service.UserService
 import madcamp.four.meanwhile.user_exception.NotValidTokenException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -19,6 +20,9 @@ class BookmarkController {
 
     @Autowired
     lateinit var bookmarkService: BookmarkService
+
+    @Autowired
+    lateinit var userService: UserService
 
     @Autowired
     lateinit var jwtTokenUtil: JwtTokenUtil
@@ -37,13 +41,14 @@ class BookmarkController {
 //        print()
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
-            var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            print(userId)
+            var signupId:Long = jwtTokenUtil.extractUserId(token.substring(7))
+            print(signupId)
+            var userId:Long = userService.getUserIdBySignupId(signupId.toString())
 //            var userId:Long = 1
+
             var refLink:String = likeData.refLink
             var refTitle:String = likeData.refTitle
             var bookmark:Bookmark = Bookmark(0, userId, refLink, refTitle)
-
             print("in Bookmark Controller")
 //            bookmarkService.addBookmark(userId, refLink, refTitle)
             bookmarkService.addBookmark(bookmark)
