@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate
 
 @Service
 class ArticleServiceImp:ArticleService{
-    private val djangoServerUrl = "http://172.10.5.112:8000"
+    private val djangoServerUrl = "http://172.10.5.112:443"
     private val restTemplate = RestTemplate()
 
     val dummyArticles:List<ArticleTemp> = listOf(
