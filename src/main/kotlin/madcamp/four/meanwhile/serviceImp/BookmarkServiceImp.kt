@@ -19,19 +19,20 @@ class BookmarkServiceImp: BookmarkService {
 
     override fun addBookmark(bookmark: Bookmark) {
 //        print("in Service IMPP\n")
-        var bookmark1:Bookmark = Bookmark(0, 1, "refLink", "refTitle")
-        var bookmark2:Bookmark = Bookmark(0, 1, "refLink", "농담곰")
-        var bookmark3:Bookmark = Bookmark(0, 1, "농담", "refTitle")
-        bookmarkMapper.addBookmark(bookmark1)
-        bookmarkMapper.addBookmark(bookmark2)
-        bookmarkMapper.addBookmark(bookmark3)
-
-        print("in Service IMPP1\n")
+//        var bookmark1:Bookmark = Bookmark(0, 1, "refLink", "refTitle")
+//        var bookmark2:Bookmark = Bookmark(0, 1, "refLink", "농담곰")
+//        var bookmark3:Bookmark = Bookmark(0, 1, "농담", "refTitle")
+//        bookmarkMapper.addBookmark(bookmark1)
+//        bookmarkMapper.addBookmark(bookmark2)
+//        bookmarkMapper.addBookmark(bookmark3)
+//
+//        print("in Service IMPP1\n")
 
         print(bookmark.refTitle)
         print(bookmark.refLink)
-        print(bookmark.userId)
+        print(bookmark.signupId)
         print(bookmark.bookmarkId)
+
         bookmarkMapper.addBookmark(bookmark)
 //        bookmarkMapper.addBookmark()
         print("in Service IMPP2\n")
@@ -40,8 +41,8 @@ class BookmarkServiceImp: BookmarkService {
 
     //2. like list userid로 불러오기
 
-    override fun getBookmarkList(userId: Long): List<Bookmark> {
-        return bookmarkMapper.getBookmarkList(userId)
+    override fun getBookmarkList(signupId: String): List<Bookmark> {
+        return bookmarkMapper.getBookmarkList(signupId)
     }
 
     override fun deleteBookmark(userId: Long, refLink: String) {

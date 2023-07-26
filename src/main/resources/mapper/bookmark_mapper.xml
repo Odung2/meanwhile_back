@@ -10,14 +10,14 @@
     </resultMap>
 
     <insert id="addBookmark">
-        INSERT INTO bookmark (user_id, ref_link, ref_title)
-        VALUES (#{userId}, #{refLink}, #{refTitle})
+        INSERT INTO bookmark (signup_id, ref_link, ref_title)
+        VALUES (#{signupId}, #{refLink}, #{refTitle})
     </insert>
 
     <select id="getBookmarkList" resultMap="BookmarkResultMap">
         SELECT *
         FROM bookmark
-        WHERE user_id = #{userId}
+        WHERE signup_id = #{signupId}
     </select>
 
     <delete id="deleteBookmark" parameterType="madcamp.four.meanwhile.model.Bookmark">

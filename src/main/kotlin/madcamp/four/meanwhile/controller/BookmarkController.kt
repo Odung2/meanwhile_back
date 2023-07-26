@@ -5,6 +5,7 @@ import madcamp.four.meanwhile.model.Bookmark
 import madcamp.four.meanwhile.model.LikeData
 import madcamp.four.meanwhile.security.JwtTokenUtil
 import madcamp.four.meanwhile.service.BookmarkService
+import madcamp.four.meanwhile.service.UserService
 import madcamp.four.meanwhile.user_exception.NotValidTokenException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -21,6 +22,9 @@ class BookmarkController {
     lateinit var bookmarkService: BookmarkService
 
     @Autowired
+    lateinit var userService: UserService
+
+    @Autowired
     lateinit var jwtTokenUtil: JwtTokenUtil
 
     var objectMapper: ObjectMapper = ObjectMapper()
@@ -32,17 +36,20 @@ class BookmarkController {
 //            @RequestParam(value="refLink", required=true) refLink:String
     ): ResponseEntity<String>
     {
-//        print("ADD BOOKMARK\n")
+        print("ADD BOOKMARK\n")
 //        print(likeData)
 //        print()
         try {
-//            if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
-//            var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            var userId:Long = 1
+            if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
+            var signupId:String = jwtTokenUtil.extractUserId(token.substring(7)).toString()
+            print(signupId)
+//            var userId:Long = userService.getUserIdBySignupId(signupId)
+//            var userId:Long = 1
+//            print(userId)
+
             var refLink:String = likeData.refLink
             var refTitle:String = likeData.refTitle
-            var bookmark:Bookmark = Bookmark(0, userId, refLink, refTitle)
-
+            var bookmark:Bookmark = Bookmark(0, signupId, refLink, refTitle)
             print("in Bookmark Controller")
 //            bookmarkService.addBookmark(userId, refLink, refTitle)
             bookmarkService.addBookmark(bookmark)
@@ -54,7 +61,7 @@ class BookmarkController {
         }
     }
 
-    @GetMapping("/get_bookmark_list")
+    @GetMapping("/bookmarks")
     public fun getBookmarkList(
             @RequestHeader("Authorization") token:String,
     ): ResponseEntity<String>
@@ -62,9 +69,9 @@ class BookmarkController {
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
 
-            var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
+            var signupId:String = jwtTokenUtil.extractUserId(token.substring(7)).toString()
 //            var userId:Long
-            var bookmarks:List<Bookmark> = bookmarkService.getBookmarkList(userId)
+            var bookmarks:List<Bookmark> = bookmarkService.getBookmarkList(signupId)
             var json:String = objectMapper.writeValueAsString(bookmarks)
             return ResponseEntity.ok(json)
         }
