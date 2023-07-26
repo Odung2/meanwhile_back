@@ -20,7 +20,10 @@ class BookmarkServiceImp: BookmarkService {
         print(userId)
         print(refTitle)
         print(refLink)
-        bookmarkMapper.addBookmark(userId, refLink, refTitle)
+//        bookmarkMapper.addBookmark(userId, refLink, refTitle)
+        bookmarkMapper.addBookmark(1234, "gg", "HAAA")
+
+
     }
 
     //2. like list userid로 불러오기
