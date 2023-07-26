@@ -2,7 +2,6 @@ package madcamp.four.meanwhile.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import madcamp.four.meanwhile.model.Article
-import madcamp.four.meanwhile.model.LikeData
 import madcamp.four.meanwhile.security.JwtTokenUtil
 import madcamp.four.meanwhile.service.ArticleService
 import org.springframework.beans.factory.annotation.Autowired
