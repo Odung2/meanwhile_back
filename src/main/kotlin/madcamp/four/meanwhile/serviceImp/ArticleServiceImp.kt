@@ -65,6 +65,7 @@ class ArticleServiceImp:ArticleService{
         val trendUrl:String = "$djangoServerUrl/api/trend"
 
         val (_, response, result) = trendUrl.httpGet().responseString()
+        print("get response from deep learning server")
 
         return when (result)
         {
