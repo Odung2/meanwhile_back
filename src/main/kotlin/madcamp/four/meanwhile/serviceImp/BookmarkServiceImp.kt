@@ -16,8 +16,10 @@ class BookmarkServiceImp: BookmarkService {
     //구현 기능
     //1. like button 눌렀을 때 -> userid 별로 추가
 
-    override fun addBookmark(userId: Long, refLink: String) {
-        bookmarkMapper.addBookmark(userId, refLink)
+    override fun addBookmark(userId: Long, refLink: String, refTitle:String) {
+        print(userId)
+        print(refTitle)
+        bookmarkMapper.addBookmark(userId, refLink, refTitle)
     }
 
     //2. like list userid로 불러오기

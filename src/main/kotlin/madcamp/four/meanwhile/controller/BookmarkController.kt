@@ -2,10 +2,12 @@ package madcamp.four.meanwhile.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import madcamp.four.meanwhile.model.Bookmark
+import madcamp.four.meanwhile.model.LikeData
 import madcamp.four.meanwhile.security.JwtTokenUtil
 import madcamp.four.meanwhile.service.BookmarkService
 import madcamp.four.meanwhile.user_exception.NotValidTokenException
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
@@ -26,17 +28,20 @@ class BookmarkController {
     @PostMapping("/add_bookmark")
     public fun addBookmark(
             @RequestHeader("Authorization") token:String,
-            @RequestParam(value="refLink", required=true) refLink:String
+            @RequestBody likeData: LikeData
+//            @RequestParam(value="refLink", required=true) refLink:String
     ): ResponseEntity<String>
     {
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
 
             var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            bookmarkService.addBookmark(userId, refLink)
-//            var accounts:List<Account> = accountService.getAccountListByUid(id)
-//            var json:String = objectMapper.writeValueAsString(accounts)
-//            return ResponseEntity.ok(json)
+            var refLink = likeData.references
+            var refTitle = likeData.refTitle
+            print(refTitle)
+            print(userId)
+            bookmarkService.addBookmark(userId, refLink, refTitle)
+
             return ResponseEntity.ok("Successfully add the bookmark")
         }
         catch (e:Exception)
@@ -63,6 +68,24 @@ class BookmarkController {
             return ResponseEntity.badRequest().body(e.message)
         }
     }
+
+//    @PostMapping("/likeArticle")
+//    fun likeArticles(@RequestBody likeData: LikeData): ResponseEntity<String>{
+//        try{
+//            // LikeData에서 받은 정보를 Like 엔티티로 변환하여 저장
+//            val like = LikeData(
+//                jwtUtilToken = likeData.jwtUtilToken,
+//                refTitle = likeData.refTitle,
+//                references = likeData.references
+//            )
+//            like.jwtUtilToken
+//
+//            return ResponseEntity.ok("Like data saved successfully!")
+//        } catch (e:Exception){
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+//                    .body("Failed to save like data.")
+//        }
+//    }
 
     @GetMapping("/delete_bookmark")
     public fun deleteBookmark(
