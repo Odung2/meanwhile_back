@@ -52,20 +52,15 @@ class KakaoServiceImp:KakaoService {
                 )
 
                 userService.insertUser(newUser)
-//                val roles: MutableList<GrantedAuthority> = ArrayList()
-//                roles.add(SimpleGrantedAuthority("USER"))
-//                token = UsernamePasswordAuthenticationToken(newUser.userId, null, roles)
-//                print("signup done")
-//                print("login done")
-//                return jwtTokenUtil.generateToken(token)
+                val roles: MutableList<GrantedAuthority> = ArrayList()
+                roles.add(SimpleGrantedAuthority("USER"))
+                token = UsernamePasswordAuthenticationToken(newUser.userId, null, roles)
+                print("signup done")
+                print("login done")
+                return jwtTokenUtil.generateToken(token)
             }
-            val roles: MutableList<GrantedAuthority> = ArrayList()
-            roles.add(SimpleGrantedAuthority("USER"))
-            token = UsernamePasswordAuthenticationToken(signupId, null, roles)
-            print("signup done")
-            print("login done")
-            return jwtTokenUtil.generateToken(token)
-//            return "gkgk"
+
+            return "gkgk"
 
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
