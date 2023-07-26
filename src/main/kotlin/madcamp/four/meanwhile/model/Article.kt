@@ -16,6 +16,7 @@ class Article(
         val keywords: List<String>,
         val refs: String,
         val url: String,
-        val date: String
+        val date: String,
+        val lang: Int,
 
 )
