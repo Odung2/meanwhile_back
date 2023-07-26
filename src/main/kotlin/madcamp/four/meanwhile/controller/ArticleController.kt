@@ -52,17 +52,13 @@ class ArticleController {
 
     @GetMapping("/trending")
     fun getTrend(): ResponseEntity<String> {
-        print("I got the request!")
         val articleCache = articleCacheManager.getCache("articleCache")
         val cachedData: String? = articleCache?.get("trend")?.get() as? String
-        print("cached Data : $cachedData")
 
         return if (cachedData != null) {
             ResponseEntity.ok(cachedData)
         } else {
-            print("let's get article data")
             val articles: List<Article> = articleService.getTrendNews()
-            print("get article data")
 
             val json: String = objectMapper.writeValueAsString(articles)
             articleCache?.put("trend", json)

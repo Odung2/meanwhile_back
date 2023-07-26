@@ -64,16 +64,16 @@ class ArticleServiceImp:ArticleService{
     override fun getTrendNews(): List<Article> { //그냥 가져오기.
         val trendUrl:String = "$djangoServerUrl/api/trend"
 
-        print("get request before send it")
         val (_, response, result) = trendUrl.httpGet().responseString()
-        print("get response from deep learning server")
 
         return when (result)
         {
             is Result.Success -> {
                 val data = result.get()
+                print(data)
                 if (data.isNotEmpty()) {
                     val articleArray = Gson().fromJson(data, Array<Article>::class.java)
+                    print(articleArray)
                     // Check if the articleArray is not null before converting it to a list
                     articleArray?.toList() ?: emptyList()
                 } else {
