@@ -36,18 +36,16 @@ class BookmarkController {
 //        print(likeData)
 //        print()
         try {
-//            if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
-//            var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            var userId:Long = 1111L
+            if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
+            var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
+//            var userId:Long = 1
             var refLink = likeData.refLink
             var refTitle = likeData.refTitle
-            var bookmark:Bookmark = Bookmark(0, 1111, refLink, refTitle)
-//            print(refTitle)
-//            print(userId)
+            var bookmark:Bookmark = Bookmark(0, userId, refLink, refTitle)
+
             print("in Bookmark Controller")
 //            bookmarkService.addBookmark(userId, refLink, refTitle)
             bookmarkService.addBookmark(bookmark)
-//            print("DONE\n")
             return ResponseEntity.ok("Successfully add the bookmark")
         }
         catch (e:Exception)
@@ -65,6 +63,7 @@ class BookmarkController {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
 
             var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
+//            var userId:Long
             var bookmarks:List<Bookmark> = bookmarkService.getBookmarkList(userId)
             var json:String = objectMapper.writeValueAsString(bookmarks)
             return ResponseEntity.ok(json)

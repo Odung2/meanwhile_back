@@ -33,4 +33,8 @@ class UserServiceImp: UserService {
         }
     }
 
+    override fun getUserIdBySignupId(signupId: String): Long {
+        return userMapper.isUserIdAlreadyExist(signupId)
+    }
+
 }
