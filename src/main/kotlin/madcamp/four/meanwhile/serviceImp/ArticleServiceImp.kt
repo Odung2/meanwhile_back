@@ -22,14 +22,12 @@ class ArticleServiceImp:ArticleService{
         // Spring Boot에서 받은 문자열을 Django 서버로 전송
         val response = restTemplate.exchange(djangoServerUrl, HttpMethod.POST, HttpEntity(keyword), object : ParameterizedTypeReference<List<String>>() {})
         return response.body!!
-//        return listOf("keyword1", "keyword2", "keyword3")
     }
 
     override fun SearchArticles(keywords: List<String>): List<Article> {
         val requestEntity: HttpEntity<List<String>> = HttpEntity(keywords)
         val response = restTemplate.exchange(djangoServerUrl, HttpMethod.POST, requestEntity, object : ParameterizedTypeReference<List<Article>>() {})
         return response.body ?: emptyList()
-//        return dummyArticles
     }
 
     override fun getTrendNews(): List<Article> { //그냥 가져오기.

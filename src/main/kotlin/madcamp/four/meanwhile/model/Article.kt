@@ -11,9 +11,10 @@ import javax.persistence.Id
 class Article(
         @Id
         val _id: String,
+        val title:String,
         val summary: String,
         val keywords: List<String>,
-        val refs: List<String>,
+        val refs: String,
         val url: String,
         val date: String
 
