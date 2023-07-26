@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cache.CacheManager
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 
+@CrossOrigin(allowedHeaders = ["*"])
 @Controller
 class ArticleController {
 
@@ -24,6 +26,7 @@ class ArticleController {
     lateinit var articleCacheManager: CacheManager
 
     private val objectMapper: ObjectMapper = ObjectMapper()
+
 
     @GetMapping("/search")
     fun searchArticles(@RequestParam(value = "query", required = true) query: String): ResponseEntity<String> {
@@ -59,5 +62,12 @@ class ArticleController {
 
             ResponseEntity.ok(json)
         }
+    }
+
+    @GetMapping("/articles")
+    fun dummyArticles(@RequestParam(value = "keywords", required = true) keywords: String): ResponseEntity<String>{
+        val json:String = objectMapper.writeValueAsString(articleService.dummyArticles())
+        print(json)
+        return  ResponseEntity.ok(json)
     }
 }

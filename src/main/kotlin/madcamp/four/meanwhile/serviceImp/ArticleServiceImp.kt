@@ -55,4 +55,8 @@ class ArticleServiceImp:ArticleService{
             }
         }
     }
+
+    override fun dummyArticles(): List<Article> {
+        return listOf()
+    }
 }
