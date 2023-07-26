@@ -19,6 +19,7 @@ class BookmarkServiceImp: BookmarkService {
     override fun addBookmark(userId: Long, refLink: String, refTitle:String) {
         print(userId)
         print(refTitle)
+        print(refLink)
         bookmarkMapper.addBookmark(userId, refLink, refTitle)
     }
 
