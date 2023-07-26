@@ -1,6 +1,7 @@
 package madcamp.four.meanwhile.service
 
 import madcamp.four.meanwhile.model.Article
+import madcamp.four.meanwhile.model.ArticleTemp
 
 interface ArticleService {
     public fun getQueryKeywords(keyword:String):List<String>
@@ -9,5 +10,5 @@ interface ArticleService {
 
     public fun getTrendNews():List<Article>
 
-    public fun dummyArticles():List<Article>
+    public fun dummyArticles():List<ArticleTemp>
 }
