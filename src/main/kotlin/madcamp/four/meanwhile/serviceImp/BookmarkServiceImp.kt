@@ -20,7 +20,12 @@ class BookmarkServiceImp: BookmarkService {
     override fun addBookmark(bookmark: Bookmark) {
 //        print("in Service IMPP\n")
         var bookmark1:Bookmark = Bookmark(0, 1, "refLink", "refTitle")
+        var bookmark2:Bookmark = Bookmark(0, 1, "refLink", "농담곰")
+        var bookmark3:Bookmark = Bookmark(0, 1, "농담", "refTitle")
         bookmarkMapper.addBookmark(bookmark1)
+        bookmarkMapper.addBookmark(bookmark2)
+        bookmarkMapper.addBookmark(bookmark3)
+
         print("in Service IMPP1\n")
 
         print(bookmark.refTitle)
