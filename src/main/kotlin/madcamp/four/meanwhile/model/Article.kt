@@ -13,7 +13,7 @@ class Article(
         val _id: String,
         val title:String,
         val summary: String,
-        val keywords: List<String>,
+        val keywords: String,
         val refs: String,
         val url: String,
         val date: String,
