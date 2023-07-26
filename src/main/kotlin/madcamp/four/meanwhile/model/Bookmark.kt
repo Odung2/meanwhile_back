@@ -20,4 +20,7 @@ class Bookmark (
     @Column
     public var refLink: String,
 
+    @Column
+    public var refTitle: String,
+
 )

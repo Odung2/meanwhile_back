@@ -9,7 +9,7 @@
         <result property="refTitle" column="ref_title"/>
     </resultMap>
 
-    <insert id="insertUser">
+    <insert id="addBookmark">
         INSERT INTO user
             (user_id, ref_link, ref_title)
         VALUES
