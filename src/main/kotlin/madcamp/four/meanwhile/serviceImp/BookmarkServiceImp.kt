@@ -23,6 +23,7 @@ class BookmarkServiceImp: BookmarkService {
         bookmarkMapper.addBookmark(bookmark1)
         print("in Service IMPP1\n")
 
+        print(bookmark)
         bookmarkMapper.addBookmark(bookmark)
 //        bookmarkMapper.addBookmark()
         print("in Service IMPP2\n")
