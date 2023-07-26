@@ -16,4 +16,11 @@ class GlobalExceptionHandler {
         print("Exception occurred because of : ${ex.message}")
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.message)
     }
+
+    @ExceptionHandler(Exception::class)
+    fun handlerException(ex:Exception):ResponseEntity<String>
+    {
+        print("Exception occurred because of : ${ex.message}")
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.message)
+    }
 }

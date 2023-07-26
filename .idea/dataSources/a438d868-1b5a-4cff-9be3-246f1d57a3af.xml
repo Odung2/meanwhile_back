@@ -740,5 +740,95 @@ meanwhile_db|schema||jiyeon||UPDATE|G</Grants>
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <user id="226" parent="1" name="jiyeon"/>
+    <table id="227" parent="225" name="bookmark">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="228" parent="225" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <column id="229" parent="227" name="bookmark_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="230" parent="227" name="user_id">
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="231" parent="227" name="ref_link">
+      <DasType>varchar(512)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="232" parent="227" name="ref_title">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="233" parent="227" name="bookmark_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>user_id</RefColNames>
+      <RefTableName>user</RefTableName>
+    </foreign-key>
+    <index id="234" parent="227" name="PRIMARY">
+      <ColNames>bookmark_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="235" parent="227" name="user_id">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="236" parent="227" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="237" parent="228" name="user_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="238" parent="228" name="username">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </column>
+    <column id="239" parent="228" name="password">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="240" parent="228" name="signup_id">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="241" parent="228" name="email">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <index id="242" parent="228" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="243" parent="228" name="signup_id">
+      <ColNames>signup_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="244" parent="228" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="245" parent="228" name="signup_id">
+      <UnderlyingIndexName>signup_id</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

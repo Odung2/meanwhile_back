@@ -2,29 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="madcamp.four.meanwhile.mapper.BookmarkMapper">
 
-    <resultMap id="BookmarkResultMap" type="Bookmark">
+    <resultMap id="BookmarkResultMap" type="madcamp.four.meanwhile.model.Bookmark">
         <id property="bookmarkId" column="bookmark_id" />
         <result property="userId" column="user_id"/>
         <result property="refLink" column="ref_link"/>
+        <result property="refTitle" column="ref_title"/>
     </resultMap>
 
-    <insert id="insertUser">
-        INSERT INTO user
-            (user_id, ref_link)
+    <insert id="addBookmark" parameterType="madcamp.four.meanwhile.model.Bookmark">
+        INSERT INTO bookmark
+            (user_id, ref_link, ref_title)
         VALUES
-            (#{userId}, #{refLink})
+            (#{userId}, #{refLink}, #{refTitle})
     </insert>
 
     <select id="getBookmarkList" resultMap="BookmarkResultMap">
         SELECT *
         FROM bookmark
-        WHERE user_id=#{userId}
+        WHERE user_id = #{userId}
     </select>
 
-    <delete id="deleteBookmark">
+    <delete id="deleteBookmark" parameterType="madcamp.four.meanwhile.model.Bookmark">
         DELETE
         FROM bookmark
-        WHERE user_id=#{userId} and ref_link=#{refLink}
+        WHERE user_id = #{userId} AND ref_link = #{refLink}
     </delete>
 
 </mapper>

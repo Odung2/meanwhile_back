@@ -6,6 +6,7 @@ import madcamp.four.meanwhile.service.BookmarkService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.GetMapping
+import java.awt.print.Book
 
 @Service
 class BookmarkServiceImp: BookmarkService {
@@ -16,15 +17,13 @@ class BookmarkServiceImp: BookmarkService {
     //구현 기능
     //1. like button 눌렀을 때 -> userid 별로 추가
 
-    override fun addBookmark(userId: Long, refLink: String, refTitle:String) {
+    override fun addBookmark(bookmark: Bookmark) {
 //        print("in Service IMPP\n")
-        print(userId)
-        print(refTitle)
-        print(refLink)
-        bookmarkMapper.addBookmark(1234, "refTitle", "refLink")
+        var bookmark1:Bookmark = Bookmark(1010101, 1234, "refLink", "refTitle")
+        bookmarkMapper.addBookmark(bookmark1)
         print("in Service IMPP1\n")
 
-        bookmarkMapper.addBookmark(userId, refLink, refTitle)
+        bookmarkMapper.addBookmark(bookmark)
 //        bookmarkMapper.addBookmark()
         print("in Service IMPP2\n")
 
