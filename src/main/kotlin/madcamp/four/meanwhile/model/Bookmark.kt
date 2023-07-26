@@ -13,7 +13,7 @@ class Bookmark (
     @Id
     @GeneratedValue
     var bookmarkId: Long,
-    var userId: Long,
+    var signupId: String,
     var refLink: String,
     var refTitle: String,
 

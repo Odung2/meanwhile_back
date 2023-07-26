@@ -10,8 +10,8 @@
     </resultMap>
 
     <insert id="addBookmark">
-        INSERT INTO bookmark (user_id, ref_link, ref_title)
-        VALUES (#{userId}, #{refLink}, #{refTitle})
+        INSERT INTO bookmark (signup_id, ref_link, ref_title)
+        VALUES (#{signupId}, #{refLink}, #{refTitle})
     </insert>
 
     <select id="getBookmarkList" resultMap="BookmarkResultMap">

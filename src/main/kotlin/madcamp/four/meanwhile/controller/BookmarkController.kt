@@ -43,13 +43,13 @@ class BookmarkController {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
             var signupId:String = jwtTokenUtil.extractUserId(token.substring(7)).toString()
             print(signupId)
-            var userId:Long = userService.getUserIdBySignupId(signupId)
+//            var userId:Long = userService.getUserIdBySignupId(signupId)
 //            var userId:Long = 1
-            print(userId)
+//            print(userId)
 
             var refLink:String = likeData.refLink
             var refTitle:String = likeData.refTitle
-            var bookmark:Bookmark = Bookmark(0, userId, refLink, refTitle)
+            var bookmark:Bookmark = Bookmark(0, signupId, refLink, refTitle)
             print("in Bookmark Controller")
 //            bookmarkService.addBookmark(userId, refLink, refTitle)
             bookmarkService.addBookmark(bookmark)

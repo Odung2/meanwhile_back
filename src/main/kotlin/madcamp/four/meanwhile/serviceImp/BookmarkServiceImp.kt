@@ -30,7 +30,7 @@ class BookmarkServiceImp: BookmarkService {
 
         print(bookmark.refTitle)
         print(bookmark.refLink)
-        print(bookmark.userId)
+        print(bookmark.signupId)
         print(bookmark.bookmarkId)
 
         bookmarkMapper.addBookmark(bookmark)
