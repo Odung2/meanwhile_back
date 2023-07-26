@@ -28,7 +28,7 @@ class BookmarkController {
     @PostMapping("/add_bookmark")
     public fun addBookmark(
             @RequestHeader("Authorization") token:String,
-            @RequestBody likeData: LikeData
+            @RequestBody bookmark: Bookmark
 //            @RequestParam(value="refLink", required=true) refLink:String
     ): ResponseEntity<String>
     {
@@ -38,12 +38,14 @@ class BookmarkController {
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
             var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            var refLink = likeData.references
-            var refTitle = likeData.refTitle
+//            var refLink = bookmark.references
+//            var refTitle = likeData.refTitle
 //            print(refTitle)
 //            print(userId)
 //            print("in Bookmark Controller")
-            bookmarkService.addBookmark(userId, refLink, refTitle)
+//            bookmarkService.addBookmark(userId, refLink, refTitle)
+
+                bookmarkService.addBookmark(bookmark)
 //            print("DONE\n")
             return ResponseEntity.ok("Successfully add the bookmark")
         }

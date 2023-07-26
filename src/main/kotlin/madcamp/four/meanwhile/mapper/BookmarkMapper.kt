@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper
 
 @Mapper
 interface BookmarkMapper {
-    public fun addBookmark(userId:Long, refLink:String, refTitle:String)
+    public fun addBookmark(bookmark: Bookmark)
 
     public fun getBookmarkList(userId: Long): List<Bookmark>
 
