@@ -38,7 +38,7 @@ class BookmarkController {
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
             var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            var refLink = likeData.references
+            var refLink = likeData.refLink
             var refTitle = likeData.refTitle
 //            print(refTitle)
 //            print(userId)

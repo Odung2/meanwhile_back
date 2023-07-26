@@ -8,5 +8,5 @@ import lombok.Data
 data class LikeData(
 //        val jwtUtilToken: String,
         val refTitle: String,
-        val references: String
+        val refLink: String
 )
