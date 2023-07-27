@@ -18,8 +18,8 @@
         WHERE signup_id = 'testid'
     </select>
     <select id="isUserIdAlreadyExist" resultMap="UserResultMap">
-                SELECT ifnull(max(user_id),0) user_id
---         SELECT user_id
+--                 SELECT ifnull(max(user_id),0) user_id
+        SELECT user_id
         FROM user
         WHERE signup_id=#{signupId}
     </select>

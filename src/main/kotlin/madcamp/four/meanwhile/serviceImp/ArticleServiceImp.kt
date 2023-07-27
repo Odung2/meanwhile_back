@@ -96,7 +96,7 @@ class ArticleServiceImp:ArticleService{
         }
     }
 
-    override fun search(@RequestParam(value = "query", required = true) query:String):List<Article>
+    override fun search(query:String):List<Article>
     {
         val keywordUrl:String = "$djangoServerUrl/api/keyword?query=$query"
 
