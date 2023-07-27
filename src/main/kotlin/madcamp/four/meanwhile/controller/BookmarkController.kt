@@ -100,7 +100,7 @@ class BookmarkController {
 //        }
 //    }
 
-    @GetMapping("/delete_bookmark")
+    @PostMapping("/delete_bookmark")
     public fun deleteBookmark(
             @RequestHeader("Authorization") token:String,
             @RequestBody deleteData: DeleteData
