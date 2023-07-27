@@ -10,7 +10,6 @@ import javax.persistence.Id
 @Data
 class Article(
         @Id
-        val _id: String,
         val title:String,
         val summary: String,
         val keywords: String,
