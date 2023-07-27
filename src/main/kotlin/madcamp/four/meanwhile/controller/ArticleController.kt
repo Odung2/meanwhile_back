@@ -80,7 +80,7 @@ class ArticleController {
 
         val json: String = objectMapper.writeValueAsString(articles)
         val dummy:String =objectMapper.writeValueAsString(dummyArticles(keywords))
-
+        print("tryto get article by search")
         return ResponseEntity.ok(dummy)
 //        return ResponseEntity.ok(json)
     }
