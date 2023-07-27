@@ -12,5 +12,5 @@ interface ArticleService {
 
     public fun dummyArticles():List<ArticleTemp>
 
-    public fun search(query: String):List<Article>
+    public fun search(query: String):String
 }

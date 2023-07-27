@@ -32,14 +32,9 @@ class ArticleController {
 
 
     @GetMapping("/search")
-    fun searchArticles(@RequestParam(value = "query", required = true) query: String): ResponseEntity<String> {
-        val articles: List<Article> = articleService.search(query)
-
-        val json: String = objectMapper.writeValueAsString(articles)
-        val dummy: String =objectMapper.writeValueAsString(articleService.dummyArticles())
-       print("try search")
-//        return ResponseEntity.ok(json)
-        return ResponseEntity.ok(dummy)
+    fun searchArticles(@RequestParam(value = "query", required = true) query: String):ResponseEntity<String>  {
+        var data:String = articleService.search(query)
+        return ResponseEntity.ok(data)
 //        val queryKeywords: List<String> = articleService.getQueryKeywords(query)
 //        val cacheKey: String = queryKeywords.joinToString(":")
 //
@@ -76,7 +71,7 @@ class ArticleController {
 
     @GetMapping("/articles")
     fun dummyArticles(@RequestParam(value = "keywords", required = true) keywords: String): ResponseEntity<String>{
-        val articles: List<Article> = articleService.search(keywords)
+        val articles: String = articleService.search(keywords)
 
         val json: String = objectMapper.writeValueAsString(articles)
 //        val dummy:String =objectMapper.writeValueAsString(dummyArticles(keywords))
