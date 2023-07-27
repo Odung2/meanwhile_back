@@ -2,6 +2,7 @@ package madcamp.four.meanwhile.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import madcamp.four.meanwhile.model.Article
+import madcamp.four.meanwhile.model.ArticleTemp
 import madcamp.four.meanwhile.security.JwtTokenUtil
 import madcamp.four.meanwhile.service.ArticleService
 import org.springframework.beans.factory.annotation.Autowired
@@ -33,8 +34,14 @@ class ArticleController {
 
     @GetMapping("/search")
     fun searchArticles(@RequestParam(value = "query", required = true) query: String):ResponseEntity<String>  {
-        var data:String = articleService.search(query)
-        return ResponseEntity.ok(data)
+//        var data:String = articleService.search(query)
+        print("try")
+        val articles: List<ArticleTemp> = articleService.dummyArticles()
+
+        val json: String = objectMapper.writeValueAsString(articles)
+        print("json\n")
+        print(json)
+        return ResponseEntity.ok(json)
 //        val queryKeywords: List<String> = articleService.getQueryKeywords(query)
 //        val cacheKey: String = queryKeywords.joinToString(":")
 //
@@ -73,11 +80,11 @@ class ArticleController {
     fun dummyArticles(@RequestParam(value = "keywords", required = true) keywords: String): ResponseEntity<String>{
         val articles: String = articleService.search(keywords)
 
-        val json: String = objectMapper.writeValueAsString(articles)
+//        val json: String = objectMapper.writeValueAsString(articles)
 //        val dummy:String =objectMapper.writeValueAsString(dummyArticles(keywords))
 //
 //        return ResponseEntity.ok(dummy)
-        return ResponseEntity.ok(json)
+        return ResponseEntity.ok(articles)
     }
 
 
