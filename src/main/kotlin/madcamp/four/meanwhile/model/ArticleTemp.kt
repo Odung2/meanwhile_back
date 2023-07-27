@@ -16,6 +16,7 @@ class ArticleTemp(
         val keywords: List<String>,
         val references: List<String>,
         val imageLink: String,
-        val publishTime: String
+        val publishTime: String,
+        val language: Int
 
 )
