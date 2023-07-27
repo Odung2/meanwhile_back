@@ -4,14 +4,19 @@ import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.nimbusds.jose.shaded.json.JSONArray
+import com.nimbusds.jose.shaded.json.JSONObject
 import madcamp.four.meanwhile.model.Article
 import madcamp.four.meanwhile.model.ArticleTemp
+import madcamp.four.meanwhile.model.Keywords
 import madcamp.four.meanwhile.service.ArticleService
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.client.RestTemplate
 
 @Service
@@ -70,7 +75,6 @@ class ArticleServiceImp:ArticleService{
         {
             is Result.Success -> {
                 val data = result.get()
-                print(data)
                 if (data.isNotEmpty()) {
                     val articleArray = Gson().fromJson(data, Array<Article>::class.java)
                     print(articleArray)
@@ -85,6 +89,33 @@ class ArticleServiceImp:ArticleService{
                  emptyList()
             }
         }
+    }
+
+    override fun search(@RequestParam(value = "query", required = true) query:String):List<Article>
+    {
+        val keywordUrl:String = "$djangoServerUrl/api/keyword?query=$query"
+
+        val (_, response, result) = keywordUrl.httpGet().responseString()
+
+        when (result) {
+            is Result.Success -> {
+                val data = result.get()
+                if (data.isNotEmpty()) {
+                    val gson = Gson()
+                    val keywords = gson.fromJson(data, Keywords::class.java)
+
+                    println("Korean Keywords: ${keywords.korean_keywords}")
+                    println("English Keywords: ${keywords.english_keywords}")
+                } else {
+                    throw Exception("list is weird")
+                }
+            }
+            is Result.Failure -> {
+                print("error : ${result.getException()}")
+                // Handle failure case (if needed)
+            }
+        }
+        return listOf()
     }
 
     override fun dummyArticles(): List<ArticleTemp> {

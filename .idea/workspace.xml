@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da0f016b-5b37-40d1-b98b-214464018f99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/model/Article.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/model/Article.kt" afterDir="false" />
-    </list>
+    <list default="true" id="da0f016b-5b37-40d1-b98b-214464018f99" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +123,7 @@
       <workItem from="1689958031875" duration="66000" />
       <workItem from="1689958100817" duration="310000" />
       <workItem from="1690259978074" duration="10493000" />
-      <workItem from="1690380324151" duration="13638000" />
+      <workItem from="1690380324151" duration="13839000" />
     </task>
     <servers />
   </component>

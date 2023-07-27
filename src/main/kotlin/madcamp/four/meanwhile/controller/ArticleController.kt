@@ -33,21 +33,28 @@ class ArticleController {
 
     @GetMapping("/search")
     fun searchArticles(@RequestParam(value = "query", required = true) query: String): ResponseEntity<String> {
-        val queryKeywords: List<String> = articleService.getQueryKeywords(query)
-        val cacheKey: String = queryKeywords.joinToString(":")
+        val articles: List<Article> = articleService.search(query)
 
-        val articleCache = articleCacheManager.getCache("articleCache")
-        val cachedData: String? = articleCache?.get(cacheKey)?.get() as? String
+        val json: String = objectMapper.writeValueAsString(articles)
 
-        return if (cachedData != null) {
-            ResponseEntity.ok(cachedData)
-        } else {
-            val articles: List<Article> = articleService.SearchArticles(queryKeywords)
-            val json:String = objectMapper.writeValueAsString(articles)
-            articleCache?.put(cacheKey, json)
 
-            ResponseEntity.ok(json)
-        }
+        return ResponseEntity.ok(json)
+
+//        val queryKeywords: List<String> = articleService.getQueryKeywords(query)
+//        val cacheKey: String = queryKeywords.joinToString(":")
+//
+//        val articleCache = articleCacheManager.getCache("articleCache")
+//        val cachedData: String? = articleCache?.get(cacheKey)?.get() as? String
+//
+//        return if (cachedData != null) {
+//            ResponseEntity.ok(cachedData)
+//        } else {
+//            val articles: List<Article> = articleService.SearchArticles(queryKeywords)
+//            val json:String = objectMapper.writeValueAsString(articles)
+//            articleCache?.put(cacheKey, json)
+//
+//            ResponseEntity.ok(json)
+//        }
     }
 
     @GetMapping("/trending")
@@ -69,9 +76,12 @@ class ArticleController {
 
     @GetMapping("/articles")
     fun dummyArticles(@RequestParam(value = "keywords", required = true) keywords: String): ResponseEntity<String>{
-        val json:String = objectMapper.writeValueAsString(articleService.dummyArticles())
-//        print(json)
-        return  ResponseEntity.ok(json)
+        val articles: List<Article> = articleService.search(keywords)
+
+        val json: String = objectMapper.writeValueAsString(articles)
+
+
+        return ResponseEntity.ok(json)
     }
 
 
