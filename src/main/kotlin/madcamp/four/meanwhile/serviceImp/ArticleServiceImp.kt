@@ -109,8 +109,27 @@ class ArticleServiceImp:ArticleService{
                     val gson = Gson()
                     val keywords = gson.fromJson(data, Keywords::class.java)
 
-                    println("Korean Keywords: ${keywords.korean_keywords}")
-                    println("English Keywords: ${keywords.english_keywords}")
+                    val articleUrl:String = "$djangoServerUrl/api/articles?korean=${keywords.korean_keywords}&english=${keywords.english_keywords}"
+
+                    val (_, response, result2) = articleUrl.httpGet().responseString()
+
+                    when (result) {
+                        is Result.Success -> {
+                            val dataArticle = result2.get()
+                            if (dataArticle.isNotEmpty()) {
+                                val gson = Gson()
+                                val articleList = gson.fromJson(dataArticle, Array<Article>::class.java)
+
+                                return articleList?.toList() ?: emptyList()
+                            } else {
+                                throw Exception("list is weird")
+                            }
+                        }
+                        is Result.Failure -> {
+                            print("error : ${result.getException()}")
+                            // Handle failure case (if needed)
+                        }
+                    }
                 } else {
                     throw Exception("list is weird")
                 }
