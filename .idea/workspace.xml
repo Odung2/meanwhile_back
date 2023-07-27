@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da0f016b-5b37-40d1-b98b-214464018f99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/controller/ArticleController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/controller/ArticleController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/service/ArticleService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/service/ArticleService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/serviceImp/ArticleServiceImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/madcamp/four/meanwhile/serviceImp/ArticleServiceImp.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +126,7 @@
       <workItem from="1689958100817" duration="310000" />
       <workItem from="1690259978074" duration="10493000" />
       <workItem from="1690380324151" duration="13839000" />
-      <workItem from="1690443679942" duration="10129000" />
+      <workItem from="1690443679942" duration="11654000" />
     </task>
     <servers />
   </component>
