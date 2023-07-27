@@ -149,6 +149,7 @@ class ArticleServiceImp:ArticleService{
     }
 
     override fun dummyArticles(): List<ArticleTemp> {
+        print("Tlqkf")
         return dummyArticles
     }
 }

@@ -36,10 +36,10 @@ class ArticleController {
         val articles: List<Article> = articleService.search(query)
 
         val json: String = objectMapper.writeValueAsString(articles)
-
-
-        return ResponseEntity.ok(json)
-
+        val dummy: String =objectMapper.writeValueAsString(articleService.dummyArticles())
+       print("try search")
+//        return ResponseEntity.ok(json)
+        return ResponseEntity.ok(dummy)
 //        val queryKeywords: List<String> = articleService.getQueryKeywords(query)
 //        val cacheKey: String = queryKeywords.joinToString(":")
 //
@@ -79,8 +79,9 @@ class ArticleController {
         val articles: List<Article> = articleService.search(keywords)
 
         val json: String = objectMapper.writeValueAsString(articles)
-
-
+//        val dummy:String =objectMapper.writeValueAsString(dummyArticles(keywords))
+//
+//        return ResponseEntity.ok(dummy)
         return ResponseEntity.ok(json)
     }
 
