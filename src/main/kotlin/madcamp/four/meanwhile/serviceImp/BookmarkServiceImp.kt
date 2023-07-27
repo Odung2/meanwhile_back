@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.GetMapping
 import java.awt.print.Book
+import kotlin.math.sign
 
 @Service
 class BookmarkServiceImp: BookmarkService {
@@ -45,7 +46,11 @@ class BookmarkServiceImp: BookmarkService {
         return bookmarkMapper.getBookmarkList(signupId)
     }
 
-    override fun deleteBookmark(userId: Long, refLink: String) {
-        bookmarkMapper.deleteBookmark(userId, refLink)
+    override fun deleteBookmark(signupId: String, bookmarkId: Long) {
+        print("in Service\n")
+        print(signupId)
+        print(bookmarkId)
+        bookmarkMapper.deleteBookmark(signupId, bookmarkId)
+        print("\nsuccesssssssssss")
     }
 }
