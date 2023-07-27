@@ -2,6 +2,7 @@ package madcamp.four.meanwhile.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import madcamp.four.meanwhile.model.Bookmark
+import madcamp.four.meanwhile.model.DeleteData
 import madcamp.four.meanwhile.model.LikeData
 import madcamp.four.meanwhile.security.JwtTokenUtil
 import madcamp.four.meanwhile.service.BookmarkService
@@ -102,14 +103,16 @@ class BookmarkController {
     @GetMapping("/delete_bookmark")
     public fun deleteBookmark(
             @RequestHeader("Authorization") token:String,
-            @RequestParam(value="refLink", required=true) refLink:String
+            @RequestBody deleteData: DeleteData
     ):ResponseEntity<String>
     {
         try {
             if(!jwtTokenUtil.validateToken(token.substring(7)))  throw NotValidTokenException("token is not valid, cannot get account list")
 
-            var userId:Long = jwtTokenUtil.extractUserId(token.substring(7))
-            bookmarkService.deleteBookmark(userId, refLink)
+
+            var signupId:String = jwtTokenUtil.extractUserId(token.substring(7)).toString()
+            var bookmarkId = deleteData.bookmarkId
+            bookmarkService.deleteBookmark(signupId, bookmarkId)
             return ResponseEntity.ok("Successfully delete the bookmark")
         }
         catch (e:Exception)

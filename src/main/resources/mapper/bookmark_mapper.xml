@@ -23,7 +23,7 @@
     <delete id="deleteBookmark" parameterType="madcamp.four.meanwhile.model.Bookmark">
         DELETE
         FROM bookmark
-        WHERE user_id = #{userId} AND ref_link = #{refLink}
+        WHERE signup_id = #{signupId} AND bookmark_id = #{bookmarkId}
     </delete>
 
 

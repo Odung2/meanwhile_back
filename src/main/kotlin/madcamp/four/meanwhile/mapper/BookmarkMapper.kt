@@ -10,5 +10,5 @@ interface BookmarkMapper {
 
     public fun getBookmarkList(signupId: String): List<Bookmark>
 
-    public fun deleteBookmark(userId: Long, refLink:String)
+    public fun deleteBookmark(signupId: String, bookmarkId:Long)
 }
