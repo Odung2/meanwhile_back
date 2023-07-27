@@ -36,7 +36,7 @@ class ArticleController {
         val articles: List<Article> = articleService.search(query)
 
         val json: String = objectMapper.writeValueAsString(articles)
-        val dummy: String =objectMapper.writeValueAsString(dummyArticles(query))
+        val dummy: String =objectMapper.writeValueAsString(articleService.dummyArticles())
        print("try search")
 //        return ResponseEntity.ok(json)
         return ResponseEntity.ok(dummy)
