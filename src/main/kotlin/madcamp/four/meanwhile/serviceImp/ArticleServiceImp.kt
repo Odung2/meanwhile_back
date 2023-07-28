@@ -366,6 +366,14 @@ class ArticleServiceImp:ArticleService{
     }
 
     override fun dummyArticles(query: String): String {
+        var noanswer:String="[" +
+                "{\"title\": [\"title\"]," +
+                " \"summary\": \"noanswer sorry\"," +
+                "\"keywords\": [\"no답\"]," +
+                "\"date\": \"2023-07-28 mybirthday\"," +
+                "\"url\": \"\"," +
+                "\"lang\": 0}" +
+                "]"
         var newjeans:String = "[" +
                 "{\"title\": [\"\\ub274\\uc9c4\\uc2a4 '\\ub514\\ud1a0', \\uc2a4\\ud3ec\\ud2f0\\ud30c\\uc774 4\\uc5b5 \\uc2a4\\ud2b8\\ub9ac\\ubc0d \\ub3cc\\ud30c - KBS\\ub274\\uc2a4\"]," +
                 " \"summary\": \"\\uc18c\\uc18d\\uc0ac \\uc5b4\\ub3c4\\uc5b4\\ub294 \\uadf8\\ub8f9 \\ud1b5\\uc0b0 \\ub450 \\ubc88\\uc9f8 4\\uc5b5 \\uc2a4\\ud2b8\\ub9ac\\ubc0d \\uace1\\uc774 \\ub41c \\uadf8\\ub8f9 \\ud1b5\\uc0b0 \\ub450 \\ubc88\\uc9f8 4\\uc5b5 \\uc2a4\\ud2b8\\ub9ac\\ubc0d \\uace1\\uc774 \\ub41c \\ub274\\uc9c4\\uc2a4\\uc758 '\\ub514\\ud1a0'\\uac00 \\uc74c\\uc6d0 \\uacf5\\uac1c \\ud6c4 218\\uc77c \\ub9cc\\uc758 \\uae30\\ub85d\\uc73c\\ub85c \\uc138\\uacc4 \\ucd5c\\ub300 \\uc74c\\uc6d0 \\uc2a4\\ud2b8\\ub9ac\\ubc0d \\ud50c\\ub7ab\\ud3fc \\uc2a4\\ud3ec\\ud2f0\\ud30c\\uc774\\uc5d0\\uc11c 4\\uc5b5 \\uc2a4\\ud2b8\\ub9ac\\ubc0d\\uc744 \\ub3cc\\ud30c\\ud588\\ub2e4\\uace0 \\ubc1d\\ud614\\ub2e4. \\uc18c\\uc18d\\uc0ac \\uc5b4\\ub3c4\\uc5b4\\ub294 'OMG'\\uc5d0 \\uc774\\uc5b4 \\uadf8\\ub8f9 \\ud1b5\\uc0b0 \\ub450 \\ubc88\\uc9f8 4\\uc5b5 \\uc2a4\\ud2b8\\ub9ac\\ubc0d \\uace1\\uc774 \\ub41c \\ub274\\uc9c4\\uc2a4\\uc758 '\\ub514\\ud1a0'\\uac00 \\uc74c\\uc6d0 \\uacf5\\uac1c \\ud6c4 218\\uc77c \\ub9cc\\uc758 \\uae30\\ub85d\\uc73c\\ub85c \\uc138\\uacc4 \\ucd5c\\ub300 \\uc74c\\uc6d0 \\uc2a4\\ud2b8\\ub9ac\\ubc0d \\ud50c\\ub7ab\\ud3fc \\uc2a4\\ud3ec\\ud2f0\\ud30c\\uc774\\uc5d0\\uc11c 4\\uc5b5 \\uc2a4\\ud2b8\\ub9ac\\ubc0d\\uc744 \\ub3cc\\ud30c\\ud588\\ub2e4\\uace0 \\ubc1d\\ud614\\ub2e4.\"," +
@@ -436,6 +444,6 @@ class ArticleServiceImp:ArticleService{
             return elonmusk
         }
         print("\n\n\nTlqkf")
-        return newjeans
+        return noanswer
     }
 }
