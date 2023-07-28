@@ -24,7 +24,7 @@ class MainController {
 
         print("Login done")
 
-        return "redirect:http://172.10.5.135:443/kakao?data=$token"
+        return "redirect:http://172.10.5.81:443/kakao?data=$token"
 //        return "redirect:http://localhost:8080/kakao?data=$token"
     }
 

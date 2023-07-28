@@ -10,7 +10,8 @@ interface ArticleService {
 
     public fun getTrendNews():List<Article>
 
-    public fun dummyArticles():List<ArticleTemp>
+    public fun dummyArticles(query: String):String
+//public fun dummyArticles(query: String):List<ArticleTemp>
 
     public fun search(query: String):String
 }

@@ -35,11 +35,13 @@ class ArticleController {
     @GetMapping("/search")
     fun searchArticles(@RequestParam(value = "query", required = true) query: String):ResponseEntity<String>  {
 //        var data:String = articleService.search(query)
-        print("try")
-        val articles: List<ArticleTemp> = articleService.dummyArticles()
-
-        val json: String = objectMapper.writeValueAsString(articles)
+        print(query)
+        print("\ntry")
+//        val articles: List<ArticleTemp> = articleService.dummyArticles()
+//        print(articles)
+//        val json: String = objectMapper.writeValueAsString(articles)
         print("json\n")
+        val json:String = articleService.dummyArticles(query)
         print(json)
         return ResponseEntity.ok(json)
 //        val queryKeywords: List<String> = articleService.getQueryKeywords(query)
