@@ -441,7 +441,7 @@ class ArticleServiceImp:ArticleService{
                 " \"keywords\": [\"\\ubd81\\ud55c\", \"\\uc778\\ud130\\ubdf0\"]," +
                 " \"refs\": [\"https://mobile.newsis.com/view.html?ar_id=NISX20230728_0002393782\", \"https://news.kbs.co.kr/news/view.do?ncd=7734871\"], " +
                 "\"date\": \"2023-07-27 19:39:30\", \"url\": \"\"," +
-                " \"lang\": 0}" +
+                " \"lang\": 0}," +
                 " {\"title\": [\"Travis King's family says America should 'fight for him' to come home from North Korea: report - Fox News\", \"What awaits US soldier Travis King in North Korean detention - NK News\", \"US State Dept has not had substantive communication with North Korea since US soldier crossed border - Reuters\", \"\\u2018Conversation has commenced\\u2019 with North Korea over US solider, United Nations Command says - CNN\"]," +
                 " \"summary\": \"Travis King is being held in North Korea after crossing into the country during a tour of the DMZ last week. Pentagon Press Secretary Brig. Gen. Patrick Ryder tells \\u2018Your World\\u2019 that the U.S. is working with the United Nations on communications and King\\u2019s safety is their 'top priority'\"," +
                 " \"keywords\": [\"travis\"]," +
