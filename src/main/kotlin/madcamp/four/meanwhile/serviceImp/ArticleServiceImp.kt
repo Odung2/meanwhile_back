@@ -467,14 +467,12 @@ class ArticleServiceImp:ArticleService{
                 " \"refs\": [\"https://mobile.newsis.com/view.html?ar_id=NISX20230726_0002390413\"]," +
                 " \"date\": \"2023-07-25 21:05:36\", \"url\": \"\"," +
                 " \"lang\": 0}," +
-
                 " {\"title\": [\"Decades after Blue House raid, North Korea is still threatening Seoul - Business Insider\"]," +
                 " \"summary\": \"In 1968, North Korean commandos slipped across the border into South Korea. A half-century later, Pyongyang is finding new ways to threaten South Korea's leaders. North Korea is now threatening South Korea with nuclear weapons and long-range missiles. The U.N. Security Council has passed a resolution calling for an end to the threat.\"," +
                 " \"keywords\": [\"commandos\", \"korean\", \"business\", \"silicon\", \"later\"]," +
                 " \"refs\": [\"https://www.businessinsider.com/decades-after-blue-house-raid-north-korea-still-threatens-seoul-2023-1\"]," +
                 " \"date\": \"2023-01-22 08:00:00\", \"url\": \"\"," +
-                " \"lang\": 1}," +
-
+                " \"lang\": 1}" +
                 "]"
         print("\n\n\nquery input: ")
         print(query)
