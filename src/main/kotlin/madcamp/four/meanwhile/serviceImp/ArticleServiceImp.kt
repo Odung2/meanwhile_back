@@ -425,7 +425,7 @@ class ArticleServiceImp:ArticleService{
         }else if(query == "일론 머스크"){
 
         }
-        print("Tlqkf")
+        print("\n\n\nTlqkf")
         return newjeans
     }
 }
