@@ -425,13 +425,13 @@ class ArticleServiceImp:ArticleService{
 
         print("\n\n\nquery input: ")
         print(query)
-        if (query == "\"뉴진스\""){
+        if (query.toLowerCase() == "\"뉴진스\"".toLowerCase()){
             print("\n\n\n뉴진스 아웃풋")
             return newjeans
-        }else if(query == "\"미군 탈영\""){
-            print("\n\n\n미군 탈영")
+        }else if(query.toLowerCase() == "\"미군 월북\"".toLowerCase()){
+            print("\n\n\n미군 월북")
             return newjeans
-        }else if(query == "\"일론 머스크\""){
+        }else if(query.toLowerCase() == "\"일론 머스크\"".toLowerCase()){
             print("\n\n\n일론 머스크")
             return elonmusk
         }
